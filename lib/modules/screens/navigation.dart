@@ -1,5 +1,6 @@
 import 'package:doctor_app/modules/config/asset.dart';
 import 'package:doctor_app/modules/config/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,7 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
+  PageController controller = PageController();
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -20,9 +22,13 @@ class _NavigationState extends State<Navigation> {
           Expanded(
             flex: 9,
             child: PageView(
+              controller: controller,
               onPageChanged: (val) {
                 setState(() {
                   currentIndex = val;
+                  controller.animateToPage(val,
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.linear);
                 });
               },
               children: const [
@@ -43,44 +49,70 @@ class _NavigationState extends State<Navigation> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration:
-                        BoxDecoration(color: btnColor, shape: BoxShape.circle),
-                    child: Image.asset(
-                      Assets.home,
-                      color: (currentIndex == 0) ? Colors.white : btnColor,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        controller.animateToPage(0,
+                            duration: const Duration(microseconds: 100),
+                            curve: Curves.linear);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: (currentIndex == 0) ? btnColor : Colors.white,
+                          shape: BoxShape.circle),
+                      child: Image.asset(
+                        Assets.home,
+                        color: (currentIndex == 0) ? Colors.white : navColor,
+                      ),
                     ),
                   ),
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration:
-                        BoxDecoration(color: btnColor, shape: BoxShape.circle),
-                    child: Image.asset(
-                      Assets.heart,
-                      color: (currentIndex == 1) ? Colors.white : btnColor,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        controller.animateToPage(1,
+                            duration: const Duration(microseconds: 100),
+                            curve: Curves.linear);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: (currentIndex == 1) ? btnColor : Colors.white,
+                          shape: BoxShape.circle),
+                      child: Image.asset(
+                        Assets.heart,
+                        color: (currentIndex == 1) ? Colors.white : navColor,
+                      ),
                     ),
                   ),
-                  Container(
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
                     height: 60,
                     width: 60,
-                    decoration:
-                        BoxDecoration(color: btnColor, shape: BoxShape.circle),
+                    decoration: BoxDecoration(
+                        color: (currentIndex == 2) ? btnColor : Colors.white,
+                        shape: BoxShape.circle),
                     child: Image.asset(
                       Assets.book,
-                      color: (currentIndex == 2) ? Colors.white : btnColor,
+                      color: (currentIndex == 2) ? Colors.white : navColor,
                     ),
                   ),
-                  Container(
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
                     height: 60,
                     width: 60,
-                    decoration:
-                        BoxDecoration(color: btnColor, shape: BoxShape.circle),
+                    decoration: BoxDecoration(
+                        color: (currentIndex == 3) ? btnColor : Colors.white,
+                        shape: BoxShape.circle),
                     child: Image.asset(
                       Assets.message,
-                      color: (currentIndex == 3) ? Colors.white : btnColor,
+                      color: (currentIndex == 3) ? Colors.white : navColor,
                     ),
                   ),
                 ],
