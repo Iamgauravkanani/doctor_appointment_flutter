@@ -5,6 +5,9 @@ class Assets {
 
   static String google = "${basepath}g.png";
   static String fb = "${basepath}f.png";
+  static String dimg = "${basepath}image.png";
+  static String star = "${basepath}star.png";
+  static String map = "${basepath}map.png";
 
   static String home = "${basepathNav}h.png";
   static String heart = "${basepathNav}l.png";
