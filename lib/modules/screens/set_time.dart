@@ -321,32 +321,34 @@ class StarRating extends StatelessWidget {
   final double rating;
   final RatingChangeCallback onRatingChanged;
   final Color color;
+  final double size;
 
   const StarRating(
       {super.key,
       this.starCount = 5,
       this.rating = .0,
       required this.onRatingChanged,
-      required this.color});
+      required this.color,
+      this.size = 15});
 
   Widget buildStar(BuildContext context, int index) {
     Icon icon;
     if (index >= rating) {
-      icon = const Icon(
+      icon = Icon(
         Icons.star_rounded,
-        size: 15,
-        color: Color(0xffE2E5EA),
+        size: size,
+        color: const Color(0xffE2E5EA),
       );
     } else if (index > rating - 1 && index < rating) {
       icon = Icon(
-        size: 15,
+        size: size,
         Icons.star_half,
         color: color,
       );
     } else {
       icon = Icon(
         Icons.star,
-        size: 15,
+        size: size,
         color: color,
       );
     }

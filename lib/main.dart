@@ -1,6 +1,7 @@
 import 'package:doctor_app/modules/screens/doctor_detail.dart';
 import 'package:doctor_app/modules/screens/favdoctor.dart';
 import 'package:doctor_app/modules/screens/find_doctor.dart';
+import 'package:doctor_app/modules/screens/home_screen.dart';
 import 'package:doctor_app/modules/screens/login.dart';
 import 'package:doctor_app/modules/screens/popular_doctor.dart';
 import 'package:doctor_app/modules/screens/set_time.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/setTime', page: () => const SetTimeScreen()),
         GetPage(name: '/docdetail', page: () => const DoctorDetail()),
         GetPage(name: '/populardoc', page: () => const PopularDoctor()),
+        GetPage(name: '/home', page: () => HomeScreen()),
       ],
     );
   }
