@@ -3,7 +3,6 @@ import 'package:doctor_app/modules/config/lists.dart';
 import 'package:doctor_app/modules/config/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../config/asset.dart';
 
 class FavDoctor extends StatelessWidget {
@@ -30,8 +29,10 @@ class FavDoctor extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: Get.height * 0.06,
+                ),
                 Row(
                   children: [
                     Container(
@@ -47,22 +48,28 @@ class FavDoctor extends StatelessWidget {
                         color: textPrimary,
                       ),
                     ),
+                    SizedBox(
+                      width: Get.width * 0.05,
+                    ),
                     Text(
                       "Favourite Doctors",
                       style: rubik(fontSize: 18, fontWeight: FontWeight.w500),
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: Get.height * 0.03,
+                ),
                 Container(
                   height: 54,
                   width: Get.width,
                   decoration: BoxDecoration(
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
-                          offset: Offset(0, 0),
+                          offset: const Offset(0, 0),
                           spreadRadius: 0,
-                          blurRadius: 0.0,
-                          color: Colors.grey)
+                          blurRadius: 10,
+                          color: Colors.black.withOpacity(0.04))
                     ],
                     borderRadius: BorderRadius.circular(6),
                     color: Colors.white,
@@ -96,7 +103,12 @@ class FavDoctor extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: Get.height * 0.04,
+                ),
                 GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: EdgeInsets.zero,
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -108,12 +120,12 @@ class FavDoctor extends StatelessWidget {
                     return Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        boxShadow: const [
+                        boxShadow: [
                           BoxShadow(
                               offset: Offset(0, 0),
-                              spreadRadius: 0,
-                              blurRadius: 0,
-                              color: Colors.grey)
+                              spreadRadius: 0.0001,
+                              blurRadius: 10,
+                              color: Colors.black.withOpacity(0.07))
                         ],
                         borderRadius: BorderRadius.circular(6),
                       ),
@@ -152,6 +164,9 @@ class FavDoctor extends StatelessWidget {
                     );
                   },
                 ),
+                SizedBox(
+                  height: Get.height * 0.03,
+                ),
                 Row(
                   children: [
                     Text(
@@ -171,6 +186,88 @@ class FavDoctor extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: Get.height * 0.03,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: docList
+                        .map((e) => Container(
+                              margin: EdgeInsets.all(5),
+                              width: 105,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(6),
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                      offset: Offset(0, 0),
+                                      spreadRadius: 0.0001,
+                                      blurRadius: 10,
+                                      color: Colors.black.withOpacity(0.07)),
+                                ],
+                              ),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      (docList.indexOf(e) % 2 != 0)
+                                          ? Image.asset(
+                                              Assets.redlike,
+                                              height: 9,
+                                              width: 8,
+                                            )
+                                          : Image.asset(
+                                              Assets.like,
+                                              height: 9,
+                                              width: 8,
+                                              color: textPrimary,
+                                            ),
+                                      Text(
+                                        "⭐${e['rating']}",
+                                        style: rubik(
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                  Image.asset(e['image']),
+                                  Text(
+                                    "${e['name']}",
+                                    style: rubik(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "\$",
+                                        style: rubik(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: btnColor),
+                                      ),
+                                      Text(
+                                        "${e['rate']}/hour",
+                                        style: rubik(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: textPrimary),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ))
+                        .toList(),
+                  ),
                 ),
               ],
             ),

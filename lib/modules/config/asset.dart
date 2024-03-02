@@ -15,6 +15,9 @@ class Assets {
   static String two = "${basepathFavDoc}2.png";
   static String three = "${basepathFavDoc}3.png";
   static String four = "${basepathFavDoc}4.png";
+  static String five = "${basepathFavDoc}5.png";
+  static String six = "${basepathFavDoc}6.png";
+  static String seven = "${basepathFavDoc}7.png";
   static String like = "${basepathFavDoc}like.png";
   static String redlike = "${basepathFavDoc}likered.png";
 }

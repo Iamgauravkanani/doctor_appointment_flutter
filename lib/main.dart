@@ -1,3 +1,4 @@
+import 'package:doctor_app/modules/screens/doctor_detail.dart';
 import 'package:doctor_app/modules/screens/favdoctor.dart';
 import 'package:doctor_app/modules/screens/find_doctor.dart';
 import 'package:doctor_app/modules/screens/login.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/findDoc',
+      initialRoute: '/docdetail',
       getPages: [
         GetPage(name: '/', page: () => const SignUp()),
         GetPage(name: '/login', page: () => const Login()),
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/favdoc', page: () => const FavDoctor()),
         GetPage(name: '/findDoc', page: () => const FindDoctorScreen()),
         GetPage(name: '/setTime', page: () => const SetTimeScreen()),
+        GetPage(name: '/docdetail', page: () => const DoctorDetail()),
       ],
     );
   }
