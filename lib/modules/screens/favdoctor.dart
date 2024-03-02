@@ -61,7 +61,7 @@ class FavDoctor extends StatelessWidget {
                       BoxShadow(
                           offset: Offset(0, 0),
                           spreadRadius: 0,
-                          blurRadius: 0.1,
+                          blurRadius: 0.0,
                           color: Colors.grey)
                     ],
                     borderRadius: BorderRadius.circular(6),
@@ -100,8 +100,8 @@ class FavDoctor extends StatelessWidget {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 15,
+                    crossAxisSpacing: 15,
                   ),
                   itemCount: favdoclist.length,
                   itemBuilder: (context, index) {
@@ -112,7 +112,7 @@ class FavDoctor extends StatelessWidget {
                           BoxShadow(
                               offset: Offset(0, 0),
                               spreadRadius: 0,
-                              blurRadius: 0.1,
+                              blurRadius: 0,
                               color: Colors.grey)
                         ],
                         borderRadius: BorderRadius.circular(6),
@@ -161,7 +161,7 @@ class FavDoctor extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       "See all >",
                       style: rubik(
