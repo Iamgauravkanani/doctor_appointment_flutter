@@ -49,3 +49,34 @@ List<Map<String, dynamic>> docList = [
     'rating': 3.7,
   },
 ];
+
+List<Map<String, dynamic>> popularList = [
+  {
+    'name': "Dr.Pediatrician",
+    'image': Assets.five,
+    'rating': 2.4,
+    'position': "Specialist Cardiologist",
+    'views': 2475,
+  },
+  {
+    'name': "Dr. Mistry Brick",
+    'image': Assets.five,
+    'rating': 2.8,
+    'position': "Specialist Dentist",
+    'views': 2893,
+  },
+  {
+    'name': "Dr. Ether Wall",
+    'image': Assets.five,
+    'rating': 2.7,
+    'position': "Specialist Cancer",
+    'views': 2754,
+  },
+  {
+    'name': "Dr. Johan smith",
+    'image': Assets.five,
+    'rating': 2.4,
+    'position': "Specialist Cardiologist",
+    'views': 2475,
+  },
+];
