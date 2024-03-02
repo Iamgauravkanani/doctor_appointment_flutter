@@ -1,6 +1,5 @@
 import 'package:doctor_app/modules/config/asset.dart';
 import 'package:doctor_app/modules/config/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
