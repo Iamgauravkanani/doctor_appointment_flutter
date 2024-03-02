@@ -1,6 +1,12 @@
 import 'package:doctor_app/modules/config/asset.dart';
 import 'package:doctor_app/modules/config/colors.dart';
+import 'package:doctor_app/modules/screens/favdoctor.dart';
+import 'package:doctor_app/modules/screens/find_doctor.dart';
+import 'package:doctor_app/modules/screens/home_screen.dart';
+import 'package:doctor_app/modules/screens/set_time.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class Navigation extends StatefulWidget {
@@ -30,9 +36,11 @@ class _NavigationState extends State<Navigation> {
                       curve: Curves.linear);
                 });
               },
-              children: const [
-                Center(child: Text("Page 1")),
-                Center(child: Text("Page 2"))
+              children: [
+                HomeScreen(),
+                const FavDoctor(),
+                const SetTimeScreen(),
+                const FindDoctorScreen(),
               ],
             ),
           ),
@@ -42,8 +50,8 @@ class _NavigationState extends State<Navigation> {
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20)),
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40)),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -90,28 +98,46 @@ class _NavigationState extends State<Navigation> {
                       ),
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                        color: (currentIndex == 2) ? btnColor : Colors.white,
-                        shape: BoxShape.circle),
-                    child: Image.asset(
-                      Assets.book,
-                      color: (currentIndex == 2) ? Colors.white : navColor,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        controller.animateToPage(2,
+                            duration: const Duration(microseconds: 100),
+                            curve: Curves.linear);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: (currentIndex == 2) ? btnColor : Colors.white,
+                          shape: BoxShape.circle),
+                      child: Image.asset(
+                        Assets.book,
+                        color: (currentIndex == 2) ? Colors.white : navColor,
+                      ),
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                        color: (currentIndex == 3) ? btnColor : Colors.white,
-                        shape: BoxShape.circle),
-                    child: Image.asset(
-                      Assets.message,
-                      color: (currentIndex == 3) ? Colors.white : navColor,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        controller.animateToPage(3,
+                            duration: const Duration(microseconds: 100),
+                            curve: Curves.linear);
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: (currentIndex == 3) ? btnColor : Colors.white,
+                          shape: BoxShape.circle),
+                      child: Image.asset(
+                        Assets.message,
+                        color: (currentIndex == 3) ? Colors.white : navColor,
+                      ),
                     ),
                   ),
                 ],

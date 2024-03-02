@@ -40,11 +40,11 @@ class HomeScreen extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                height: 190,
+                height: 210,
                 child: Stack(
                   children: [
                     Container(
-                      height: 170,
+                      height: 180,
                       decoration: const BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -299,12 +299,17 @@ class HomeScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),
-                              Text(
-                                "See all",
-                                style: rubik(
-                                    color: textPrimary,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w300),
+                              TextButton(
+                                onPressed: () {
+                                  Get.toNamed('/populardoc');
+                                },
+                                child: Text(
+                                  "See all",
+                                  style: rubik(
+                                      color: textPrimary,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w300),
+                                ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios_rounded,
@@ -411,12 +416,17 @@ class HomeScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w500),
                                 ),
                               ),
-                              Text(
-                                "See all",
-                                style: rubik(
-                                    color: textPrimary,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w300),
+                              TextButton(
+                                onPressed: () {
+                                  Get.toNamed('/favdoc');
+                                },
+                                child: Text(
+                                  "See all",
+                                  style: rubik(
+                                      color: textPrimary,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w300),
+                                ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios_rounded,

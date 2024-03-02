@@ -5,9 +5,9 @@ import 'package:doctor_app/modules/screens/home_screen.dart';
 import 'package:doctor_app/modules/screens/login.dart';
 import 'package:doctor_app/modules/screens/popular_doctor.dart';
 import 'package:doctor_app/modules/screens/set_time.dart';
+import 'package:doctor_app/modules/screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'modules/screens/navigation.dart';
 import 'modules/screens/signup.dart';
 
@@ -22,9 +22,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/populardoc',
+      initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => const SignUp()),
+        GetPage(name: '/', page: () => const splash()),
+        GetPage(name: '/signup', page: () => const SignUp()),
         GetPage(name: '/login', page: () => const Login()),
         GetPage(name: '/nav', page: () => const Navigation()),
         GetPage(name: '/favdoc', page: () => const FavDoctor()),
